@@ -13,7 +13,6 @@
 		8443D8ED2B8669100077C45A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8443D8EC2B8669100077C45A /* Assets.xcassets */; };
 		8443D8F02B8669100077C45A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8443D8EE2B8669100077C45A /* LaunchScreen.storyboard */; };
 		8443D8F92B8669260077C45A /* Turbo in Frameworks */ = {isa = PBXBuildFile; productRef = 8443D8F82B8669260077C45A /* Turbo */; };
-		8443D8FC2B8669480077C45A /* TurboNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = 8443D8FB2B8669480077C45A /* TurboNavigator */; };
 		C92113062BC73A800037E14B /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92113052BC73A800037E14B /* ButtonComponent.swift */; };
 		C92113082BC73AD90037E14B /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92113072BC73AD90037E14B /* BridgeComponent+App.swift */; };
 		C921130B2BC73B460037E14B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C921130A2BC73B460037E14B /* WebViewController.swift */; };
@@ -41,7 +40,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8443D8F92B8669260077C45A /* Turbo in Frameworks */,
-				8443D8FC2B8669480077C45A /* TurboNavigator in Frameworks */,
 				C941C0FD2BC7259B00BBABC3 /* Strada in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,7 +114,6 @@
 			name = Turbo8;
 			packageProductDependencies = (
 				8443D8F82B8669260077C45A /* Turbo */,
-				8443D8FB2B8669480077C45A /* TurboNavigator */,
 				C941C0FC2BC7259B00BBABC3 /* Strada */,
 			);
 			productName = Turbo8;
@@ -149,7 +146,6 @@
 			mainGroup = 8443D8D72B86690E0077C45A;
 			packageReferences = (
 				8443D8F72B8669260077C45A /* XCRemoteSwiftPackageReference "turbo-ios" */,
-				8443D8FA2B8669480077C45A /* XCRemoteSwiftPackageReference "TurboNavigator" */,
 				C941C0FB2BC7259B00BBABC3 /* XCRemoteSwiftPackageReference "strada-ios" */,
 			);
 			productRefGroup = 8443D8E12B86690E0077C45A /* Products */;
@@ -413,16 +409,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hotwired/turbo-ios";
 			requirement = {
-				branch = "skip-visit-proposal";
+				branch = "turbo-navigator";
 				kind = branch;
-			};
-		};
-		8443D8FA2B8669480077C45A /* XCRemoteSwiftPackageReference "TurboNavigator" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/joemasilotti/TurboNavigator";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
 			};
 		};
 		C941C0FB2BC7259B00BBABC3 /* XCRemoteSwiftPackageReference "strada-ios" */ = {
@@ -440,11 +428,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8443D8F72B8669260077C45A /* XCRemoteSwiftPackageReference "turbo-ios" */;
 			productName = Turbo;
-		};
-		8443D8FB2B8669480077C45A /* TurboNavigator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8443D8FA2B8669480077C45A /* XCRemoteSwiftPackageReference "TurboNavigator" */;
-			productName = TurboNavigator;
 		};
 		C941C0FC2BC7259B00BBABC3 /* Strada */ = {
 			isa = XCSwiftPackageProductDependency;
