@@ -31,6 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: TurboNavigatorDelegate {
   func handle(proposal: VisitProposal) -> ProposalResult {
-    .acceptCustom(WebViewController(url: proposal.url))
+    let isScrollEnabled = proposal.properties["scroll_enabled"] as? Bool ?? true
+    let controller = WebViewController(url: proposal.url, isScrollEnabled: isScrollEnabled)
+    return .acceptCustom(controller)
   }
 }
