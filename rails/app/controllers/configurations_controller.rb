@@ -13,7 +13,8 @@ class ConfigurationsController < ApplicationController
             properties: {
               context: "default",
               uri: "turbo://fragment/web",
-              pull_to_refresh_enabled: false
+              pull_to_refresh_enabled: false,
+              scroll_enabled: false
             }
           },
           {
