@@ -1,5 +1,4 @@
 {
-  "originHash" : "ce6368e8128f4e725565c6b15eaee3d62b8fe81a92137e3ebf631d3f4f92b6c7",
   "pins" : [
     {
       "identity" : "strada-ios",
@@ -20,5 +19,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

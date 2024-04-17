@@ -4,25 +4,23 @@ import UIKit
 import WebKit
 
 class WebViewController: VisitableViewController, BridgeDestination {
-    private var isScrollEnabled = true
-
     private lazy var bridgeDelegate = BridgeDelegate(
         location: visitableURL.absoluteString,
         destination: self,
         componentTypes: BridgeComponent.allTypes
     )
 
-    convenience init(url: URL, isScrollEnabled: Bool) {
-        self.init(url: url)
-        self.isScrollEnabled = isScrollEnabled
-    }
-
     // MARK: View lifecycle
 
+    convenience init(url: URL, isScrollEnabled: Bool) {
+          self.init(url: url)
+          //self.isScrollEnabled = false
+      }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         bridgeDelegate.onViewDidLoad()
-        visitableView.webView?.scrollView.isScrollEnabled = isScrollEnabled
+      visitableView.webView?.scrollView.isScrollEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
