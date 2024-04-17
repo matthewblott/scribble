@@ -11,25 +11,25 @@ const ocr = () => {
   let startY;
 
   // Mouse
-  // canvas.addEventListener('mousedown', (e) => {
-  //   isPainting = true;
-  //   startX = e.clientX;
-  //   startY = e.clientY;
-  // });
-  // canvas.addEventListener('mousemove', e => {
-  //   if (!isPainting) {
-  //     return;
-  //   }
-  //   ctx.lineWidth = lineWidth;
-  //   ctx.lineCap = 'round';
-  //   ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-  //   ctx.stroke();
-  // });
-  // canvas.addEventListener('mouseup', () => {
-  //   isPainting = false;
-  //   ctx.stroke();
-  //   ctx.beginPath();
-  // });
+  canvas.addEventListener('mousedown', (e) => {
+    isPainting = true;
+    startX = e.clientX;
+    startY = e.clientY;
+  });
+  canvas.addEventListener('mousemove', e => {
+    if (!isPainting) {
+      return;
+    }
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = 'round';
+    ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+    ctx.stroke();
+  });
+  canvas.addEventListener('mouseup', () => {
+    isPainting = false;
+    ctx.stroke();
+    ctx.beginPath();
+  });
 
   // Touch
   canvas.addEventListener('touchstart', (e) => {
