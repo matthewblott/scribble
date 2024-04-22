@@ -1,0 +1,13 @@
+<panel>
+  <h2><%= t(".title") %></h2>
+  <p><%= t(".description") %></p>
+  <%= form_for :password, url: passwords_path do |form| %>
+    <field>
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </field>
+    <field>
+      <%= form.submit %>
+    </field>
+  <% end %>
+</panel>

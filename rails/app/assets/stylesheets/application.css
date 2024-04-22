@@ -1,1 +1,103 @@
-/* Application styles */
+@import url('_variables.css');
+@import url('modern-normalize.css');
+
+/* Button */
+
+input[type="submit"],
+button, a[role="button"] {
+  width: var(--button-width);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
+  border-color: var(--border-color);
+  border-style: var(--border-style);
+  color: var(--button-color-text);
+  background-color: var(--button-color-background);
+  text-align: center;  
+  padding: var(--padding-vertical) calc(var(--padding-horizontal) * 4);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  /* display: block; */
+  margin: var(--margin-vertical) var(--margin-horizontal);
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0, 123, 255, 0.8);
+  }
+
+}
+
+
+/* CSS */
+
+body {
+  color: var(--text-color);
+}
+
+main,
+h1 {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  /* display: block; */
+  padding: calc(var(--padding-vertical) / 2) calc(var(--padding-horizontal) / 4);
+  margin: var(--margin-vertical) var(--margin-horizontal);
+}
+
+input {
+  width: var(--input-width);
+  color: var(--text-color);
+  padding: var(--padding-vertical)  calc(var(--padding-horizontal) / 4);
+  margin: var(--margin-vertical) var(--margin-horizontal);
+  /* display: block; */
+  border-style: var(--border-style);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
+  border-color: var(--border-color);
+}
+
+a {
+  text-decoration: none;
+  margin: var(--margin-vertical) var(--margin-horizontal);
+
+  &:hover {
+    color: rgba(0, 123, 255, 0.8);
+  }
+}
+
+svg {
+  height: 2rem;
+  color: inherit;
+}
+
+field {
+  display: block;
+  width: 100%;
+  padding: var(--padding-vertical) 0;
+
+  input {
+    margin-bottom: 0.02rem;
+  }
+}
+
+panel {
+  display: block;
+  /* Shadow effect */
+  /* box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1); */
+  /* Lift effect */
+  /* transform: translateY(-0.2rem); */
+  /* Add transition for smooth animation */
+  /* transition: box-shadow 0.3s, transform 0.3s; */
+  padding: var(--padding-vertical) var(--padding-horizontal);
+
+  &:hover {
+    /* Adjusted shadow on hover */
+    /* box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2); */
+    /* Adjusted lift effect on hover */
+    /* transform: translateY(-0.4rem);  */
+  }
+
+}

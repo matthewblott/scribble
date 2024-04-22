@@ -1,0 +1,20 @@
+:root {
+  --text-color: darkslategray;
+
+  --padding-horizontal: 2rem;
+  --padding-vertical: 0.5rem;
+
+  --border-radius: 0.3rem;
+  --border-width: 0.03rem;
+  --border-color: grey;
+  --border-style: solid;
+
+  --button-color-text: whitesmoke;
+  --button-color-background: darkslateblue;
+
+  --field-width: 100%;
+
+  --button-width: 100%; 
+  --input-width: 100%;
+  
+}

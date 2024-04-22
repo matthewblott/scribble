@@ -1,8 +1,5 @@
 <style>
   div[data-controller="notes"] {
-    div:first-of-type {
-      background-color: lightblue;
-    }
     canvas {
       width: 100%;
       height: 70vh;
@@ -10,13 +7,40 @@
     }
 
   }
+
+  controls {
+    display: block;
+    width: 100%;
+    display: flex;
+  }
+
+  button {
+
+    display: inline;
+  }
+
+  [hidden] {
+    display: none;
+  }
 </style>
-<h1>Draw</h1>
-<div data-controller="notes">
+<style>
+  img {
+    width: 100px;
+    border: solid black 1px;
+  }
+</style>
+<div data-controller="notes" data-action="foo->notes#bar">
+  <controls>
+    <a role="button" href="<%= new_note_path %>">New </a>
+    <button form="sign-out-form" type="submit">Sign out</button>
+  </controls>
   <div>
-    <button data-action="click->notes#clear">Clear</button>
-    <button data-action="click->notes#toText">To text</button>
-    <span data-notes-target="message"></span>
+    <% @notes.each do |note| %>
+      <p>
+        <img src="<%= "/uploads/#{note.id}.png" %>">
+      </p>
+    <% end %>
   </div>
-  <canvas data-notes-target="canvas"></canvas>
-</section>
+</div>
+<%= form_with(method: :delete, url: sign_out_path, :html => {:id => 'sign-out-form'}) do %>
+<% end %>

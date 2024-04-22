@@ -1,24 +1,45 @@
 import { Controller } from "@hotwired/stimulus"
-import { ocr } from 'ocr'
-import { work } from 'worker'
 
 export default class extends Controller {
+  static lastScrollTop = 0
+  static page = 1
 
-  static targets = ['canvas', 'message'];
+  scroll(e) {
+    let st = document.documentElement.scrollTop;
 
-  initialize() {
-    ocr()
+    if (st > this.lastScrollTop) {
+      // downscroll code
+    } else if (st < this.lastScrollTop) {
+      // upscroll code
+    }
+
+    this.lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
+    // page++;
+    // $.ajax({
+    //   url: '/records',
+    //   type: 'GET',
+    //   data: { page: page },
+    //   dataType: 'script',
+    //   success: function() {
+    //     isLoading = false;
+    //   }
+    // });
+
+    console.log('scroll was called')
   }
 
-  clear(e) {
-    this.canvasTarget.getContext('2d').clearRect(0, 0, this.canvasTarget.width, this.canvasTarget.height);
-    this.messageTarget.innerText = ''
+  connect() {
+    this.lastScrollTop = 0;
+    this.page = 1;
+
+    document.addEventListener('scroll', this.scroll);
+
   }
 
-  async toText() {
-    const text = await work(this.canvasTarget)
-    this.messageTarget.innerText = text
-    console.log(text)
+  disconnect() {
+    document.removeEventListener('scroll', this.scroll)
   }
 
 }
+

@@ -1,5 +1,5 @@
 const ocr = () => {
-  const canvas = document.querySelector('[data-notes-target="canvas"]');
+  const canvas = document.querySelector('[data-note-target="canvas"]');
   const ctx = canvas.getContext('2d');
   const lineWidth = 3;
 
@@ -10,7 +10,7 @@ const ocr = () => {
   let startX;
   let startY;
 
-  // Mouse
+  //Mouse
   canvas.addEventListener('mousedown', (e) => {
     isPainting = true;
     startX = e.clientX;

@@ -1,0 +1,38 @@
+<style>
+  div[data-controller="note"] {
+    canvas {
+      width: 100%;
+      height: 70vh;
+      background-color: lightyellow;
+    }
+
+  }
+
+  controls {
+    display: block;
+    width: 100%;
+    display: flex;
+  }
+
+  button {
+
+    display: inline;
+  }
+
+  [hidden] {
+    display: none;
+  }
+</style>
+<div data-controller="note">
+  <controls>
+    <a role="button" href="<%= notes_path %>">Back</a>
+    <button data-action="click->note#clear">Clear</button>
+    <button data-action="click->note#toText">Text</button>
+    <input type="hidden" name="text" form="note-form" data-note-target="text">
+  </controls>
+  <canvas data-note-target="canvas"></canvas>
+  <input type="hidden" name="img" data-note-target="img" form="note-form">
+  <button form="note-form" type="submit" data-search-field-target="submit" hidden data-note-target="submit"></button>
+</div>
+<%= form_with(url: notes_path, :html => {:id => 'note-form'}) do %>
+<% end %>
