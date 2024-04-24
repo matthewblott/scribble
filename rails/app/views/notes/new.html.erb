@@ -1,33 +1,8 @@
-<style>
-  div[data-controller="note"] {
-    canvas {
-      width: 100%;
-      height: 70vh;
-      background-color: lightyellow;
-    }
-
-  }
-
-  controls {
-    display: block;
-    width: 100%;
-    display: flex;
-  }
-
-  button {
-
-    display: inline;
-  }
-
-  [hidden] {
-    display: none;
-  }
-</style>
 <div data-controller="note">
-  <controls>
-    <a role="button" href="<%= notes_path %>">Back</a>
-    <button data-action="click->note#clear">Clear</button>
-    <button data-action="click->note#toText">Text</button>
+  <controls role="group">
+    <a role="button" href="<%= notes_path %>" class="radius-0">Back</a>
+    <button data-action="click->note#clear" class="radius-0">Clear</button>
+    <button data-action="click->note#toText" class="radius-0">Text</button>
     <input type="hidden" name="text" form="note-form" data-note-target="text">
   </controls>
   <canvas data-note-target="canvas"></canvas>

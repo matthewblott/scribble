@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: %i[destroy]
 
   def index
-    count = 10
+    count = 1
     @pagy, @notes = pagy(Note.all.order(created_at: :desc), items: count)
   end
 

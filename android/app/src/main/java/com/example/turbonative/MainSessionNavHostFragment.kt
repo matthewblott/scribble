@@ -7,7 +7,6 @@ import kotlin.reflect.KClass
 
 class MainSessionNavHostFragment : TurboSessionNavHostFragment() {
   override val sessionName = "main"
- // 192.168.0.233 
 //  override val startLocation = "http://10.0.2.2:3000/"
   override val startLocation = "http://192.168.0.233:3000/"
   override val registeredFragments: List<KClass<out Fragment>>

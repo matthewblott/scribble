@@ -11,10 +11,10 @@
 
   --button-color-text: whitesmoke;
   --button-color-background: darkslateblue;
+  --button-color-text-disabled: grey;
 
   --field-width: 100%;
 
   --button-width: 100%; 
   --input-width: 100%;
-  
 }
