@@ -25,7 +25,7 @@
   <% end %>
   <!-- New  -->
   <%= link_to "New", new_note_path, role: "button", class: "radius-0" %>
-  <button form="sign-out-form" type="submit" class="radius-0">Sign out</button>
+  <a href="<%= settings_path %>" role="button" class="radius-0">Settings</a>
 </controls>
 <div list>
   <% @notes.each do |note| %>
@@ -34,5 +34,3 @@
     </p>
   <% end %>
 </div>
-<%= form_with(method: :delete, url: sign_out_path, :html => {:id => 'sign-out-form'}) do %>
-<% end %>

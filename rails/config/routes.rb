@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resource(:configuration, only: :show)
 
+  resources(:settings, only: :index)
+
   resources(:notes, only: [:create, :new, :destroy, :index])
 
-  resources(:passwords, controller: "clearance/passwords", only: [:create, :new])
+  resources(:passwords, controller: "clearance/passwords", only: [:create, :edit, :new])
 
   resource(:session, controller: "clearance/sessions", only: [:create])
 

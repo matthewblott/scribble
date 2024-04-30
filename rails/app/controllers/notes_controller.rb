@@ -12,7 +12,12 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params)
+
+    @note = Note.new
+    @note.text = params[:text]
+    @note.img = params[:img]
+
+    # UserMailer.with(user: current_user).welcome_email.deliver_later
 
     # Required to generate the id
     @note.validate!
