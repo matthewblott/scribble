@@ -16,8 +16,9 @@ class NotesController < ApplicationController
     @note = Note.new
     @note.text = params[:text]
     @note.img = params[:img]
+    @note.user = current_user
 
-    # UserMailer.with(user: current_user).welcome_email.deliver_later
+    UserMailer.with(user: current_user).welcome_email.deliver_later
 
     # Required to generate the id
     @note.validate!
