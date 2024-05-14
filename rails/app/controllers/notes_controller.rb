@@ -4,7 +4,7 @@ class NotesController < ApplicationController
 
   def index
     count = 1
-    @pagy, @notes = pagy(Note.all.order(created_at: :desc), items: count)
+    @pagy, @notes = pagy(Note.where(:user_id => current_user.id).order(created_at: :desc), items: count)
   end
 
   def new
@@ -18,8 +18,6 @@ class NotesController < ApplicationController
     @note.img = params[:img]
     @note.user = current_user
 
-    UserMailer.with(user: current_user).welcome_email.deliver_later
-
     # Required to generate the id
     @note.validate!
 
@@ -32,6 +30,10 @@ class NotesController < ApplicationController
 
     if @note.save
       redirect_to(@note, notice: "Note was successfully created.")
+
+      # UserMailer.with(user: current_user).welcome_email.deliver_later
+      NoteMailer.with(user: current_user, img: @note.img).new_note.deliver_later
+
     else
       render(:new, status: :unprocessable_entity)
     end

@@ -1,9 +1,10 @@
 import Strada
 
 extension BridgeComponent {
-  static var allTypes: [BridgeComponent.Type] {
-    [
-      ButtonComponent.self,
-    ]
-  }
+    static var allTypes: [BridgeComponent.Type] {
+        [
+            ButtonComponent.self,
+        ]
+    }
 }
+

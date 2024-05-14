@@ -12,15 +12,9 @@ class WebViewController: VisitableViewController, BridgeDestination {
 
     // MARK: View lifecycle
 
-    convenience init(url: URL, isScrollEnabled: Bool) {
-          self.init(url: url)
-          //self.isScrollEnabled = false
-      }
-  
     override func viewDidLoad() {
         super.viewDidLoad()
         bridgeDelegate.onViewDidLoad()
-      visitableView.webView?.scrollView.isScrollEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {

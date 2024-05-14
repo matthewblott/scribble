@@ -3,13 +3,9 @@ import UIKit
 import WebKit
 import Strada
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, TurboNavigatorDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var window: UIWindow?
 
-  func handle(proposal: VisitProposal) -> ProposalResult {
-      .acceptCustom(WebViewController(url: proposal.url))
-  }
-  
   private let baseURL = URL(string: "http://localhost:3000")!
   private lazy var navigator = TurboNavigator(pathConfiguration: pathConfiguration, delegate: self)
   private lazy var pathConfiguration = PathConfiguration(sources: [
@@ -23,13 +19,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, TurboNavigatorDelegate 
   }
   
   private func configureStrada() {
-      TurboConfig.shared.userAgent += " \(Strada.userAgentSubstring(for: BridgeComponent.allTypes))"
+    Turbo.config.userAgent += " \(Strada.userAgentSubstring(for: BridgeComponent.allTypes))"
 
-      TurboConfig.shared.makeCustomWebView = { configuration in
-          let webView = WKWebView(frame: .zero, configuration: configuration)
-          Bridge.initialize(webView)
-          return webView
-      }
+    Turbo.config.makeCustomWebView = { configuration in
+      let webView = WKWebView(frame: .zero, configuration: configuration)
+      Bridge.initialize(webView)
+      return webView
     }
-  
+  }
+}
+
+extension SceneDelegate: TurboNavigatorDelegate {
+  func handle(proposal: VisitProposal) -> ProposalResult {
+    .acceptCustom(WebViewController(url: proposal.url))
+  }
 }

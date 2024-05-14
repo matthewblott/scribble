@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resource(:configuration, only: :show)
+  # resource(:configuration, only: :show)
+  resource :configurations, only: [] do
+    get :ios, on: :collection
+    get :android, on: :collection
+  end 
 
   resources(:settings, only: :index)
 

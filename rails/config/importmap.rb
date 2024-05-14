@@ -7,3 +7,5 @@ pin("@hotwired/stimulus-loading", to: "stimulus-loading.js")
 pin_all_from("app/javascript/controllers", under: "controllers")
 pin("ocr", to: "ocr.js")
 pin("worker", to: "worker.js")
+pin "@hotwired/strada", to: "@hotwired--strada.js" # @1.0.0
+pin "@hotwired/stimulus", to: "@hotwired--stimulus.js" # @3.2.2
