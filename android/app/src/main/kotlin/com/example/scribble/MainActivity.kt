@@ -8,7 +8,6 @@ import dev.hotwire.strada.KotlinXJsonConverter
 import dev.hotwire.strada.Strada
 import dev.hotwire.turbo.activities.TurboActivity
 import dev.hotwire.turbo.delegates.TurboActivityDelegate
-import com.google.android.material.R
 
 class MainActivity : AppCompatActivity(), TurboActivity {
   override lateinit var delegate: TurboActivityDelegate 
@@ -16,12 +15,14 @@ class MainActivity : AppCompatActivity(), TurboActivity {
     super.onCreate(savedInstanceState)
     configStrada() 
 
-    // setContentView(R.layout.activity_main)
-    // ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-    //   val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-    //   v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-    //   insets
-    // }
+    setContentView(R.layout.activity_main)
+
+     ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) {
+       v, insets ->
+         val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+         v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+         insets
+     }
   }
   private fun configStrada() {
     Strada.config.jsonConverter = KotlinXJsonConverter()
