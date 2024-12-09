@@ -36,66 +36,66 @@ button, [role="button"] {
     opacity: var(.opacity-50);
     pointer-events: none;
   }
-}
 
-button.primary {
-  -button-background: var(.color-primary);
-  -button-border-color: transparent;
-  -button-color: var(.color-text-reversed);
-  -button-icon-color: var(.color-filter-text-reversed);
-}
-
-button.secondary {
-  -button-background: var(.color-secondary);
-  -button-border-color: transparent;
-}
-
-button.borderless {
-  -button-border-color: transparent;
-}
-
-button.positive {
-  -button-background: var(.color-positive);
-  -button-border-color: transparent;
-  -button-color: white;
-  -button-icon-color: invert(1);
-}
-
-button.negative {
-  -button-background: var(.color-negative);
-  -button-border-color: transparent;
-  -button-color: white;
-  -button-icon-color: invert(1);
-}
-
-button.plain {
-  -button-background: transparent;
-  -button-border-color: transparent;
-  -button-hover-color: transparent;
-  -button-padding: 0;
-}
-
-button.icon {
-  -button-padding: var(.size-2);
-  -button-radius: var(.rounded-full);
-}
-
-[aria-busy] button.loading:disabled {
-  > * {
-    visibility: hidden;
+  &.primary {
+    -button-background: var(.color-primary);
+    -button-border-color: transparent;
+    -button-color: var(.color-text-reversed);
+    -button-icon-color: var(.color-filter-text-reversed);
   }
 
-  &::after {
-    filter: var(-button-icon-color, var(.color-filter-text));
+  &.secondary {
+    -button-background: var(.color-secondary);
+    -button-border-color: transparent;
   }
 
-  &::after {
-    animation: spin 1s linear infinite;
-    background-image: url("loader-circle.svg");
-    background-size: cover;
-    block-size: var(.size-4);
-    content: "";
-    inline-size: var(.size-4);
-    position: absolute;
+  &.borderless {
+    -button-border-color: transparent;
+  }
+
+  &.positive {
+    -button-background: var(.color-positive);
+    -button-border-color: transparent;
+    -button-color: white;
+    -button-icon-color: invert(1);
+  }
+
+  &.negative {
+    -button-background: var(.color-negative);
+    -button-border-color: transparent;
+    -button-color: white;
+    -button-icon-color: invert(1);
+  }
+
+  &.plain {
+    -button-background: transparent;
+    -button-border-color: transparent;
+    -button-hover-color: transparent;
+    -button-padding: 0;
+  }
+
+  &.icon {
+    -button-padding: var(.size-2);
+    -button-radius: var(.rounded-full);
+  }
+
+  [aria-busy] &.loading:disabled {
+    > * {
+      visibility: hidden;
+    }
+
+    &::after {
+      filter: var(-button-icon-color, var(.color-filter-text));
+    }
+
+    &::after {
+      animation: spin 1s linear infinite;
+      background-image: url("loader-circle.svg");
+      background-size: cover;
+      block-size: var(.size-4);
+      content: "";
+      inline-size: var(.size-4);
+      position: absolute;
+    }
   }
 }
