@@ -79,7 +79,7 @@ button, [role="button"] {
     --button-radius: var(--rounded-full);
   }
 
-  [aria-busy] &.loading:disabled {
+  &.loading:disabled[aria-busy] {
     > * {
       visibility: hidden;
     }
