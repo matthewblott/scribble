@@ -1,0 +1,18 @@
+<controls role="group">
+  <a role="button" href="<%= notes_path %>" class="positive">Back</a>
+  <button form="sign-out-form" type="submit" class="positive">Sign out</button>
+</controls>
+<%= form_with(method: :delete, url: Current.session, :html => {:id => 'sign-out-form'}) do %>
+<% end %>
+<panel>
+  <h2>Reset your password</h2>
+  <p>To be emailed a link to reset your password click the button below.</p>
+  <form action="<%#= passwords_path %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <field>
+      <input type="hidden" name="password[email]" value="<%= current_user.email %>">
+      <button data-disable-with="Reset password">Reset password</button>
+    </field>
+  </form>
+</panel>
+

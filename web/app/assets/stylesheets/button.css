@@ -1,0 +1,101 @@
+:root {
+  -button-background: var(.color-bg);
+}
+
+button, [role="button"] {
+  align-items: center;
+  background-color: var(-button-background);
+  border-radius: var(-button-radius, var(.rounded-md));
+  border: 1px solid var(-button-border-color, var(.color-border));
+  color: var(-button-color, var(.color-text));
+  cursor: pointer;
+  display: inline-flex;
+  font-size: var(-button-font-size, var(.text-sm));
+  font-weight: var(-button-font-weight, var(.font-medium));
+  gap: var(.size-2);
+  inline-size: var(-button-inline-size, auto);
+  justify-content: var(-button-justify-content, center);
+  padding: var(-button-padding, 0.5rem 1rem);
+  text-align: center;
+  white-space: nowrap;
+
+  /* img:not([class]) { */
+  /*   filter: var(-button-icon-color, var(.color-filter-text)); */
+  /* } */
+
+  &:hover {
+    background-color: var(-button-hover-color, oklch(from var(.btn-background) calc(l * .95) c h));
+  }
+
+  &:focus-visible {
+    outline: var(-button-outline-size, 2px) solid var(.color-selected-dark);
+    outline-offset: var(.border-2);
+  }
+
+  &:is(:disabled, [aria-disabled]) {
+    opacity: var(.opacity-50);
+    pointer-events: none;
+  }
+}
+
+button.primary {
+  -button-background: var(.color-primary);
+  -button-border-color: transparent;
+  -button-color: var(.color-text-reversed);
+  -button-icon-color: var(.color-filter-text-reversed);
+}
+
+button.secondary {
+  -button-background: var(.color-secondary);
+  -button-border-color: transparent;
+}
+
+button.borderless {
+  -button-border-color: transparent;
+}
+
+button.positive {
+  -button-background: var(.color-positive);
+  -button-border-color: transparent;
+  -button-color: white;
+  -button-icon-color: invert(1);
+}
+
+button.negative {
+  -button-background: var(.color-negative);
+  -button-border-color: transparent;
+  -button-color: white;
+  -button-icon-color: invert(1);
+}
+
+button.plain {
+  -button-background: transparent;
+  -button-border-color: transparent;
+  -button-hover-color: transparent;
+  -button-padding: 0;
+}
+
+button.icon {
+  -button-padding: var(.size-2);
+  -button-radius: var(.rounded-full);
+}
+
+[aria-busy] button.loading:disabled {
+  > * {
+    visibility: hidden;
+  }
+
+  &::after {
+    filter: var(-button-icon-color, var(.color-filter-text));
+  }
+
+  &::after {
+    animation: spin 1s linear infinite;
+    background-image: url("loader-circle.svg");
+    background-size: cover;
+    block-size: var(.size-4);
+    content: "";
+    inline-size: var(.size-4);
+    position: absolute;
+  }
+}
