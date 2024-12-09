@@ -38,10 +38,10 @@ button, [role="button"] {
   }
 
   &.primary {
-    -button-background: var(.color-primary);
-    -button-border-color: transparent;
-    -button-color: var(.color-text-reversed);
-    -button-icon-color: var(.color-filter-text-reversed);
+    --button-background: var(--color-primary);
+    --button-border-color: transparent;
+    --button-color: var(--color-text-reversed);
+    --button-icon-color: var(--color-filter-text-reversed);
   }
 
   &.secondary {
