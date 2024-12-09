@@ -46,6 +46,7 @@ button, [role="button"] {
 
   &.secondary {
     --button-background: var(--color-secondary);
+tmp
     -button-border-color: transparent;
   }
 
