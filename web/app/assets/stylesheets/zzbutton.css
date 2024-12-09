@@ -80,7 +80,7 @@ button, [role="button"] {
   }
 
   &[aria-busy].loading:disabled {
-    > * {
+    & > * {
       visibility: hidden;
     }
 
