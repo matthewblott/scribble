@@ -36,66 +36,66 @@ button, [role="button"] {
     opacity: var(--opacity-50);
     pointer-events: none;
   }
-}
 
-button.primary {
-  --btn-background: var(--color-primary);
-  --btn-border-color: transparent;
-  --btn-color: var(--color-text-reversed);
-  --btn-icon-color: var(--color-filter-text-reversed);
-}
-
-button.secondary {
-  --btn-background: var(--color-secondary);
-  --btn-border-color: transparent;
-}
-
-button.borderless {
-  --btn-border-color: transparent;
-}
-
-button.positive {
-  --btn-background: var(--color-positive);
-  --btn-border-color: transparent;
-  --btn-color: white;
-  --btn-icon-color: invert(1);
-}
-
-button.negative {
-  --btn-background: var(--color-negative);
-  --btn-border-color: transparent;
-  --btn-color: white;
-  --btn-icon-color: invert(1);
-}
-
-button.plain {
-  --btn-background: transparent;
-  --btn-border-color: transparent;
-  --btn-hover-color: transparent;
-  --btn-padding: 0;
-}
-
-button.icon {
-  --btn-padding: var(--size-2);
-  --btn-radius: var(--rounded-full);
-}
-
-[aria-busy] button.loading:disabled {
-  > * {
-    visibility: hidden;
+  &.primary {
+    --btn-background: var(--color-primary);
+    --btn-border-color: transparent;
+    --btn-color: var(--color-text-reversed);
+    --btn-icon-color: var(--color-filter-text-reversed);
   }
 
-  &::after {
-    filter: var(--btn-icon-color, var(--color-filter-text));
+  &.secondary {
+    --btn-background: var(--color-secondary);
+    --btn-border-color: transparent;
   }
 
-  &::after {
-    animation: spin 1s linear infinite;
-    background-image: url("loader-circle.svg");
-    background-size: cover;
-    block-size: var(--size-4);
-    content: "";
-    inline-size: var(--size-4);
-    position: absolute;
+  &.borderless {
+    --btn-border-color: transparent;
+  }
+
+  &.positive {
+    --btn-background: var(--color-positive);
+    --btn-border-color: transparent;
+    --btn-color: white;
+    --btn-icon-color: invert(1);
+  }
+
+  &.negative {
+    --btn-background: var(--color-negative);
+    --btn-border-color: transparent;
+    --btn-color: white;
+    --btn-icon-color: invert(1);
+  }
+
+  &.plain {
+    --btn-background: transparent;
+    --btn-border-color: transparent;
+    --btn-hover-color: transparent;
+    --btn-padding: 0;
+  }
+
+  &.icon {
+    --btn-padding: var(--size-2);
+    --btn-radius: var(--rounded-full);
+  }
+
+  &[aria-busy].loading:disabled {
+    > * {
+      visibility: hidden;
+    }
+
+    &::after {
+      filter: var(--btn-icon-color, var(--color-filter-text));
+    }
+
+    &::after {
+      animation: spin 1s linear infinite;
+      background-image: url("loader-circle.svg");
+      background-size: cover;
+      block-size: var(--size-4);
+      content: "";
+      inline-size: var(--size-4);
+      position: absolute;
+    }
   }
 }
