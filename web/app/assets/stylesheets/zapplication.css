@@ -1,0 +1,47 @@
+/**
+* Canvas
+*/
+
+canvas {
+  /* width: 100%; */
+  /* width: 100vw; */
+  flex-grow: 1;
+  background-color: lightyellow;
+}
+
+/**
+* Note
+*/
+
+div[data-controller="note"] {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+* Utilities
+*/
+
+[hidden] {
+  display: none;
+}
+
+div[list] {
+  background-color: lightyellow;
+}
+
+fieldset {
+  /* display: grid; */
+  /* gap: 1rem; */
+}
+
+field {
+  /* margin-bottom: 1rem; */
+}
+
+@media (min-width: 768px) {
+  fieldset {
+    grid-template-columns: 1fr 1fr;
+  }
+}

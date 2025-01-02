@@ -1,0 +1,45 @@
+<% content_for :title, "Notes" %>
+
+<controls role="group">
+  <!-- First -->
+
+  <% if @pagy.page == 1 %>
+   <button class="turbo-native-hidden" disabled>First</button>
+  <% else %>
+    <%= link_to "First", notes_path + "?page=1", role: "button", class: "turbo-native-hidden" %>
+  <% end %>
+  <!-- Previous -->
+  <% if @pagy.page > 1 %>
+    <%= link_to "Previous", notes_path + "?page=" + (@pagy.page - 1).to_s, role: "button", class: "turbo-native-hidden" %>
+  <% else %>
+   <button class="turbo-native-hidden" disabled>Previous</button>
+  <% end %>
+  <!-- Next -->
+  <% if @pagy.page == @pagy.last %>
+   <button class="turbo-native-hidden" disabled>Next</button>
+  <% else %>
+    <%= link_to "Next", notes_path + "?page=" + (@pagy.page.next).to_s, role: "button", class: "turbo-native-hidden" %>
+  <% end %>
+  <!-- Last -->
+  <% if @pagy.page == @pagy.last %>
+   <button class="turbo-native-hidden" disabled>Last</button>
+  <% else %>
+    <%= link_to "Last", notes_path + "?page=" + (@pagy.last).to_s, role: "button", class: "turbo-native-hidden" %>
+  <% end %>
+
+  <!-- New -->
+  <%= link_to "New", new_note_path, role: "button"  %>
+  <!-- Settings -->
+  <%= link_to "Settings", settings_path, role: "button" %>
+</controls>
+
+<br>
+
+<div list>
+  <% @notes.each do |note| %>
+    <p>
+      <img src="<%= "/uploads/#{note.id}.png" %>">
+    </p>
+  <% end %>
+</div>
+

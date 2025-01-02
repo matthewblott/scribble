@@ -1,0 +1,3 @@
+- Always ask if you are unsure about anything, avoid making assumptions.
+- Don't provide me with any terminal suggestions.
+- Always use 2 spaces for tabs instead of 4 spaces.

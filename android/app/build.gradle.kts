@@ -1,5 +1,5 @@
 plugins {
-  id("com.android.application") version "8.4.1"
+  id("com.android.application") version "8.7.3"
   id("org.jetbrains.kotlin.android") version "1.9.0"
 }
 
@@ -15,8 +15,10 @@ android {
 }
 
 dependencies {
-  implementation("dev.hotwire:strada:1.0.0-beta3")
-  implementation("dev.hotwire:turbo:7.1.3")
+  implementation("dev.hotwire:core:1.0.0")
+  implementation("dev.hotwire:navigation-fragments:1.0.0")
+  //noinspection GradleDependency
   implementation(platform("androidx.compose:compose-bom:2023.10.01"))
-  // implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+  implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+  implementation("com.google.android.flexbox:flexbox:3.0.0")
 }

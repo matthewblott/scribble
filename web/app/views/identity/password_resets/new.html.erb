@@ -1,0 +1,15 @@
+<p class="alert"><%= alert %></p>
+
+<% content_for :title, "Forgot your password?" %>
+
+<%= form_with(url: identity_password_reset_path) do |form| %>
+  <fieldset>
+    <field>
+      <%= form.label :email  %>
+      <%= form.email_field :email, required: true, autofocus: true %>
+    </field>
+    <div>
+      <%= form.submit "Send password reset email" %>
+    </div>
+  </fieldset>
+<% end %>

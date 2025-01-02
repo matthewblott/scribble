@@ -1,0 +1,14 @@
+<% content_for :title, "Settings" %>
+
+<controls role="group">
+  <a role="button" href="<%= notes_path %>">Back</a>
+  <button form="sign-out-form" type="submit">Sign out</button>
+  <button form="password-reset-form" type="submit">Send password reset email</button>
+</controls>
+
+<%= form_with(method: :delete, url: Current.session, :html => {:id => 'sign-out-form'}) do %>
+<% end %>
+
+<%= form_with(method: :post, url: identity_password_reset_path, :html => {:id => 'password-reset-form'}) do |form| %>
+  <%= form.hidden_field :email, value: current_user.email %>
+<% end %>

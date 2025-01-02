@@ -1,0 +1,18 @@
+<% content_for :title, "New Note" %>
+
+<div data-controller="note">
+  <controls role="group">
+    <a role="button" href="<%= notes_path %>">Back</a>
+    <!--<button data-controller="bridge--button" data-bridge-ios-image="person.circle" data-bridge-side="left" class="non-turbo-native:hidden">Save</button>-->
+    <input type="hidden" name="text" form="note-form" data-note-target="text">
+    <button data-action="click->note#clear">Clear</button>
+    <button data-action="click->note#toText">Save</button>
+  </controls>
+<br>
+  <canvas data-note-target="canvas"></canvas>
+  <input type="hidden" name="img" data-note-target="img" form="note-form">
+  <button form="note-form" type="submit" data-search-field-target="submit" hidden data-note-target="submit"></button>
+</div>
+<%= form_with(url: notes_path, :html => {:id => 'note-form'}) do %>
+<% end %>
+

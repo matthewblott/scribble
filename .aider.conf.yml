@@ -1,0 +1,10 @@
+## Always say yes to every confirmation
+yes-always: true
+
+dark-mode: true
+code-theme: monokai
+
+
+read:
+  - conf/rules.md
+
