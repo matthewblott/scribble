@@ -1,6 +1,6 @@
-<p style="color: red"><%= alert %></p>
+<p class="alert alert--positive"><%= alert %></p>
 
-<h1>Change your password</h1>
+<% content_for :title, "Change your password" %>
 
 <%= form_with(url: password_path, method: :patch) do |form| %>
   <% if @user.errors.any? %>

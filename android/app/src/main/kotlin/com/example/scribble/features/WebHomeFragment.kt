@@ -1,0 +1,7 @@
+package com.example.scribble.features
+
+import dev.hotwire.navigation.destinations.HotwireDestinationDeepLink
+import dev.hotwire.navigation.fragments.HotwireWebFragment
+
+@HotwireDestinationDeepLink(uri = "turbo://fragment/web/home")
+open class WebHomeFragment : HotwireWebFragment()

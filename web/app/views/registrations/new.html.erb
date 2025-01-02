@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<% content_for :title, "Sign up" %>
 
 <%= form_with(url: sign_up_path) do |form| %>
   <% if @user.errors.any? %>
@@ -13,23 +13,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.email_field :email, value: @user.email, required: true, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.password_field :password, required: true, autocomplete: "new-password" %>
-    <div>2 characters minimum.</div>
-  </div>
-
-  <div>
-    <%= form.label :password_confirmation, style: "display: block" %>
-    <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
-  </div>
-
-  <div>
-    <%= form.submit "Sign up" %>
-  </div>
+  <fieldset>
+    <field>
+      <%= form.label :email %>
+      <%= form.email_field :email, value: @user.email, required: true, autofocus: true, autocomplete: "email", class: "mb-2" %>
+    </field>
+    <field>
+      <%= form.label :password  %>
+      <%= form.password_field :password, required: true, autocomplete: "new-password", class: "mb-2" %>
+    </field>
+    <field>
+      <%= form.label :password_confirmation  %>
+      <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", class: "mb-2" %>
+    </field>
+    <div>
+      <%= form.submit "Sign up", class: "mb-2" %>
+    </div>
+      <div class="mb-2">2 characters minimum.</div>
+  </fieldset>
 <% end %>

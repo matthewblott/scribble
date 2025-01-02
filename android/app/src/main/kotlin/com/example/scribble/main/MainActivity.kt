@@ -1,27 +1,38 @@
 package com.example.scribble.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.NavController
+import com.example.scribble.HOME_URL
 import com.example.scribble.R
-import dev.hotwire.strada.KotlinXJsonConverter
-import dev.hotwire.strada.Strada
-import dev.hotwire.turbo.activities.TurboActivity
-import dev.hotwire.turbo.delegates.TurboActivityDelegate
+import com.google.android.material.appbar.MaterialToolbar
+import dev.hotwire.navigation.activities.HotwireActivity
+import dev.hotwire.navigation.navigator.NavigatorConfiguration
 
-class MainActivity : AppCompatActivity(), TurboActivity {
-  override lateinit var delegate: TurboActivityDelegate
+class MainActivity : HotwireActivity() {
+  private lateinit var navController: NavController
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.main_activity)
 
-    delegate = TurboActivityDelegate(this, R.id.main_nav_host)
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+    setContentView(R.layout.activity_main)
+
+//    val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+//    setSupportActionBar(toolbar)
   }
 
-  private fun configStrada() {
-    Strada.config.jsonConverter = KotlinXJsonConverter()
-  } 
+  override fun navigatorConfigurations() = listOf(
+    NavigatorConfiguration(
+      name = "main",
+      startLocation = HOME_URL,
+      navigatorHostId = R.id.main_navigator_host
+    )
+  )
+
+  override fun onSupportNavigateUp(): Boolean {
+    return navController.navigateUp()
+        || super.onSupportNavigateUp()
+  }
   
 }

@@ -1,4 +1,4 @@
-.input {
+input {
   appearance: none;
   background-color: var(--input-background, var(--color-bg));
   border: 1px solid var(--input-border-color, var(--color-border));
@@ -50,7 +50,7 @@
 }
 
 /* Containers that act like (and contain) inputs */
-.input--actor {
+input.actor {
   input {
     border: 0; inline-size: 100%; outline: 0;
   }
@@ -75,7 +75,7 @@
 }
 
 /* Styles that are shared between components */
-:is(.input, .checkbox, .radio, .range) {
+:is(input, .checkbox, .radio, .range) {
   &:focus-visible {
     outline: var(--input-outline-size, 2px) solid var(--color-selected-dark);
     outline-offset: var(--border-2);

@@ -154,6 +154,10 @@ GEM
       actioncable (>= 6.0.0)
       listen (>= 3.0.0)
       railties (>= 6.0.0)
+    hotwire-spark (0.1.12)
+      listen
+      rails (>= 7.0.0)
+      zeitwerk
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.3)
@@ -170,6 +174,8 @@ GEM
     launchy (3.0.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
+    letter_opener (1.10.0)
+      launchy (>= 2.2, < 4)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -229,6 +235,8 @@ GEM
       timeout
     net-smtp (0.5.0)
       net-protocol
+    nice_partials (0.10.1)
+      actionview (>= 4.2.6)
     nio4r (2.7.3)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
@@ -412,10 +420,13 @@ DEPENDENCIES
   factory_bot_rails (~> 6.4)
   faker (~> 3.4)
   hotwire-livereload (~> 1.4)
+  hotwire-spark (~> 0.1.12)
   importmap-rails (~> 2.0)
   jbuilder (~> 2.13)
   launchy (~> 3.0)
+  letter_opener
   litestream (~> 0.11)
+  nice_partials (~> 0.10.1)
   ostruct (~> 0.6.0)
   pagy (~> 9.1)
   propshaft (~> 1.1.0)

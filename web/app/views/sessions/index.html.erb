@@ -1,6 +1,6 @@
-<p style="color: green"><%= notice %></p>
+<p class="flash"><%= notice %></p>
 
-<h1>Devices & Sessions</h1>
+<% content_for :title, "Devices & Sessions" %>
 
 <div id="sessions">
   <% @sessions.each do |session| %>

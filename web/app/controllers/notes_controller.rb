@@ -12,7 +12,6 @@ class NotesController < ApplicationController
   end
 
   def create
-
     @note = Note.new
     @note.text = params[:text]
     @note.img = params[:img]
@@ -22,14 +21,14 @@ class NotesController < ApplicationController
     @note.validate!
 
     image_data = @note.img
-    image_data = image_data.sub("data:image/png;base64,", "")
+    image_data = image_data.sub('data:image/png;base64,', '')
 
-    File.open(Rails.root.join("public", "uploads", "#{@note.id}.png"), "wb") do |file|
+    File.open(Rails.root.join('public', 'uploads', "#{@note.id}.png"), 'wb') do |file|
       file.write(Base64.decode64(image_data))
     end
 
     if @note.save
-      redirect_to(@note, notice: "Note was successfully created.")
+      redirect_to(@note, notice: 'Note was successfully created.')
 
       # UserMailer.with(user: current_user).welcome_email.deliver_later
       NoteMailer.with(user: current_user, img: @note.img).new_note.deliver_later
@@ -41,15 +40,15 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy!
-    redirect_to(notes_url, notice: "Note was successfully destroyed.", status: :see_other)
+    redirect_to(notes_url, notice: 'Note was successfully destroyed.', status: :see_other)
   end
 
   private
+
   def generate_uuid
     self.id ||= SecureRandom.uuid
   end
 
-  private
   def set_note
     @note = Note.find(params[:id])
   end

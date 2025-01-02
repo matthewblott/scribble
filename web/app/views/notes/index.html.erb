@@ -1,32 +1,40 @@
+<% content_for :title, "Notes" %>
+
 <controls role="group">
   <!-- First -->
+
   <% if @pagy.page == 1 %>
-    <a href="#" role="button" class="radius-0 turbo-native-hidden" disabled>First</a>
+   <button class="turbo-native-hidden" disabled>First</button>
   <% else %>
-    <%= link_to "First", notes_path + "?page=1", role: "button", class: "radius-0 turbo-native-hidden" %>
+    <%= link_to "First", notes_path + "?page=1", role: "button", class: "turbo-native-hidden" %>
   <% end %>
   <!-- Previous -->
   <% if @pagy.page > 1 %>
-    <%= link_to "Previous", notes_path + "?page=" + (@pagy.page - 1).to_s, role: "button", class: "radius-0" %>
+    <%= link_to "Previous", notes_path + "?page=" + (@pagy.page - 1).to_s, role: "button", class: "turbo-native-hidden" %>
   <% else %>
-    <a href="#" role="button" class="radius-0" disabled>Previous</a>
+   <button class="turbo-native-hidden" disabled>Previous</button>
   <% end %>
   <!-- Next -->
   <% if @pagy.page == @pagy.last %>
-    <a href="#" role="button" class="radius-0" disabled>Next</a>
+   <button class="turbo-native-hidden" disabled>Next</button>
   <% else %>
-    <%= link_to "Next", notes_path + "?page=" + (@pagy.page.next).to_s, role: "button", class: "radius-0" %>
+    <%= link_to "Next", notes_path + "?page=" + (@pagy.page.next).to_s, role: "button", class: "turbo-native-hidden" %>
   <% end %>
   <!-- Last -->
   <% if @pagy.page == @pagy.last %>
-    <a href="#" role="button" class="radius-0 turbo-native-hidden" disabled>Last</a>
+   <button class="turbo-native-hidden" disabled>Last</button>
   <% else %>
-    <%= link_to "Last", notes_path + "?page=" + (@pagy.last).to_s, role: "button", class: "radius-0 turbo-native-hidden" %>
+    <%= link_to "Last", notes_path + "?page=" + (@pagy.last).to_s, role: "button", class: "turbo-native-hidden" %>
   <% end %>
-  <!-- New  -->
-  <%= link_to "New", new_note_path, role: "button", class: "radius-0" %>
-  <a href="<%= settings_path %>" role="button" class="radius-0">Settings</a>
+
+  <!-- New -->
+  <%= link_to "New", new_note_path, role: "button"  %>
+  <!-- Settings -->
+  <%= link_to "Settings", settings_path, role: "button" %>
 </controls>
+
+<br>
+
 <div list>
   <% @notes.each do |note| %>
     <p>

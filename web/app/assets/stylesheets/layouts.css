@@ -61,7 +61,7 @@
   padding: var(--sidebar-padding, 0);
 }
 
-#main {
+main {
   display: flex;
   flex-direction: column;
   gap: var(--size-4);

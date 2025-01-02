@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Web" %></title>
+    <title><%= content_for(:title) || "Scribble" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -20,22 +20,21 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :all, "data-turbo-track": "reload" %>
 
-    <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
 
     <%= javascript_importmap_tags %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body class="header-layout">
-    <header id="header">
-      <div class="container">
-        <h1 class="font-bold text-2xl">Web</h1>
-      </div>
-    </header>
+  <body class="header-layout <%= 'turbo-native' if native_app? %>">
 
-    <main id="main">
+    <%= render 'components/header' %>
+
+    <main>
       <div class="container">
         <%= yield %>
       </div>
     </main>
   </body>
+
 </html>
