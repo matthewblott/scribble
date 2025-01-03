@@ -1,5 +1,31 @@
-<h1 class="turbo-native-hidden font-bold text-2xl"><%= page_title %></h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scribble</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<%#= link_to "Change password", edit_password_path %>
-<%#= link_to "Change email address", edit_identity_email_path %>
-<%#= link_to "Devices & Sessions", sessions_path %>
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :all, "data-turbo-track": "reload" %>
+
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+
+    <%= javascript_importmap_tags %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+
+</html>

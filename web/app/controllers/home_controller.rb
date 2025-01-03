@@ -3,5 +3,6 @@ class HomeController < ApplicationController
   layout "home", only: [:index]
 
   def index
+    render :splash
   end
 end
