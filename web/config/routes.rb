@@ -14,8 +14,7 @@ Rails.application.routes.draw do
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
 
-  root('notes#new')
-
+  root('home#index')
 
   resources(:notes, only: [:create, :new, :destroy, :index])
 
