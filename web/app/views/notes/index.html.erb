@@ -1,6 +1,6 @@
 <% content_for :title, "Notes" %>
 
-<controls role="group">
+<controls role="group" class="turbo-native-hidden">
   <!-- First -->
 
   <% if @pagy.page == 1 %>
@@ -28,9 +28,15 @@
   <% end %>
 
   <!-- New -->
-  <%= link_to "New", new_note_path, role: "button"  %>
+  <%= link_to "New", new_note_path,
+    data: { controller: 'bridge--new', bridge__new_target: "submit" },
+    role: "button" %>
+
   <!-- Settings -->
-  <%= link_to "Settings", settings_path, role: "button" %>
+  <%= link_to "Settings", settings_path,
+    data: { controller: 'bridge--settings', bridge__settings_target: "submit" },
+    role: "button" %>
+
 </controls>
 
 <br>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scribble</title>
+    <title><%= content_for(:title) || "Scribble" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -24,8 +26,12 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="header-layout <%= 'turbo-native' if native_app? %>">
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 
 </html>

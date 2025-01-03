@@ -1,5 +1,7 @@
 package com.example.scribble
 
+import com.example.scribble.components.NewButton
+import com.example.scribble.components.SettingsButton
 import dev.hotwire.core.BuildConfig
 import dev.hotwire.core.bridge.KotlinXJsonConverter
 import dev.hotwire.core.config.Hotwire
@@ -12,6 +14,8 @@ import dev.hotwire.navigation.routing.BrowserTabRouteDecisionHandler
 
 import com.example.scribble.features.WebFragment
 import com.example.scribble.features.WebHomeFragment
+import dev.hotwire.core.bridge.BridgeComponentFactory
+import dev.hotwire.navigation.config.registerBridgeComponents
 
 class Application : android.app.Application() {
   override fun onCreate() {
@@ -34,6 +38,10 @@ class Application : android.app.Application() {
       WebHomeFragment::class,
     )
 
+    Hotwire.registerBridgeComponents(
+      BridgeComponentFactory("new", ::NewButton),
+      BridgeComponentFactory("settings", ::SettingsButton),
+    )
     Hotwire.registerRouteDecisionHandlers(
       AppNavigationRouteDecisionHandler(),
       BrowserTabRouteDecisionHandler()

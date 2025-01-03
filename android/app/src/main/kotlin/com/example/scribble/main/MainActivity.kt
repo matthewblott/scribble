@@ -18,8 +18,9 @@ class MainActivity : HotwireActivity() {
     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     setContentView(R.layout.activity_main)
 
-//    val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-//    setSupportActionBar(toolbar)
+    val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+    
+    setSupportActionBar(toolbar)
   }
 
   override fun navigatorConfigurations() = listOf(
